@@ -11,13 +11,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       address: {
-        type: Sequelize.TEXT
-      },
-      description: {
         type: Sequelize.STRING
       },
+      name: {
+        type: Sequelize.STRING
+      },
+      description: {
+        type: Sequelize.TEXT
+      },
       image: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

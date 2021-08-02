@@ -11,7 +11,7 @@ const sequelize = new Sequelize('nhakhoa', 'root', 'password', {
 let connectDB = async () => {
     try {
         await sequelize.authenticate();
-        console.log('Kết nối db thành công');
+        console.log('Kết nối database thành công');
       } catch (error) {
         console.error('Chưa kết nối đc:', error);
       }

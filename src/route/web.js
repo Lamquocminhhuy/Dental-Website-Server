@@ -32,6 +32,8 @@ let initWebRoutes = (app) => {
 
     router.delete('/api/delete-user', userController.handleDeleteUser);
 
+    router.get('/api/allcode', userController.getAllCode)
+
 
 
     return app.use("/", router);
@@ -40,3 +42,4 @@ let initWebRoutes = (app) => {
 
 
 module.exports = initWebRoutes;
+

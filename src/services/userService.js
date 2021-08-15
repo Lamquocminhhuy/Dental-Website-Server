@@ -254,6 +254,24 @@ let getAllCodeService = (typeInput) =>{
 
     })
 }
+
+let getService = () => {
+    return new Promise(async(resolve, reject) =>{
+
+        try{
+                let res = {};
+                let service = await db.Service.findAll();
+                res.data = service;
+                resolve(res);
+
+        }catch(e){
+            console.log(e);
+            reject(e)
+        }
+
+    })
+
+}
 module.exports = {
     handleUserLogin: handleUserLogin,
     getAllUsers: getAllUsers,
@@ -261,4 +279,5 @@ module.exports = {
     deleteUser:deleteUser,
     updateUserData: updateUserData,
     getAllCodeService: getAllCodeService,
+    getService : getService,
 }

@@ -38,6 +38,9 @@ let initWebRoutes = (app) => {
     router.get('/api/top-doctor-home', doctorController.getTopDoctorHome);
 
     router.get('/api/service-chatbot', userController.getChatbotService);
+
+    router.get('/api/service-chatbot', userController.getChatbotService);
+
     
 
 

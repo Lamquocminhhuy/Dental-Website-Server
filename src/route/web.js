@@ -39,7 +39,7 @@ let initWebRoutes = (app) => {
 
     router.get('/api/service-chatbot', userController.getChatbotService);
 
-    router.get('/api/service-chatbot', userController.getChatbotService);
+
 
     
 

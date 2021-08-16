@@ -40,6 +40,13 @@ let initWebRoutes = (app) => {
     router.get('/api/service-chatbot', userController.getChatbotService);
 
 
+    router.get('/api/get-all-doctors', doctorController.getAllDoctors);
+
+    router.post('/api/save-infor-doctors', doctorController.postInforDoctors);
+
+
+
+
 
     
 

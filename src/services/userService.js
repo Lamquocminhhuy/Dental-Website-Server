@@ -260,8 +260,34 @@ let getService = () => {
 
         try{
                 let res = {};
-                let service = await db.Service.findAll();
+                let service = await db.Service.findAll({
+                    attributes: {
+                        exclude : ['createdAt', 'updatedAt']
+                    },
+                });
                 res.data = service;
+                resolve(res);
+
+        }catch(e){
+            console.log(e);
+            reject(e)
+        }
+
+    })
+
+}
+
+let getSupport = () => {
+    return new Promise(async(resolve, reject) =>{
+
+        try{
+                let res = {};
+                let support = await db.Support.findAll({
+                    attributes: {
+                        exclude : ['createdAt', 'updatedAt']
+                    }
+                });
+                res.data = support;
                 resolve(res);
 
         }catch(e){
@@ -280,4 +306,5 @@ module.exports = {
     updateUserData: updateUserData,
     getAllCodeService: getAllCodeService,
     getService : getService,
+    getSupport:getSupport
 }

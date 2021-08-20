@@ -61,7 +61,8 @@ let saveDetailInforDoctor = (inputData) =>{
                     errCode: 1,
                     errMessage: 'Missing required parameter'
                 })
-            }else{
+            }
+            else{
                 await db.Markdown.create({
                     contentHTML: inputData.contentHTML,
                     contentMarkdown: inputData.contentMarkdown,

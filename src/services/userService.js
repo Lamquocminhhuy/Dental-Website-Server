@@ -227,7 +227,7 @@ let updateUserData = (data) => {
 
 }
 
-let getAllcodeservice = (typeInput) => {
+let getAllCodeService = (typeInput) => {
     return new Promise(async(resolve, reject) => {
 
         try {
@@ -310,7 +310,7 @@ module.exports = {
     createNewUser: createNewUser,
     deleteUser: deleteUser,
     updateUserData: updateUserData,
-    getAllcodeservice: getAllcodeservice,
+    getAllCodeService: getAllCodeService,
     getService: getService,
     getSupport: getSupport
 }

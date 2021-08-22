@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   Support.init({
 
         problem: DataTypes.STRING,
-        solving: DataTypes.STRING,
+        solving: DataTypes.TEXT,
         
 
 

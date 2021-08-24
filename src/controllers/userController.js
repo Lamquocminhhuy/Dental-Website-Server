@@ -10,7 +10,7 @@ let handleLogin = async (req,res) =>{
         return res.status(500).json({
             errCode: 1,
             message: 'Missing inputs parameter!'
-        })
+        });
     } 
 
     let userData = await userService.handleUserLogin(email, password)
@@ -105,19 +105,6 @@ let getChatbotService = async (req, res) => {
     }
 }
 
-let getAllSupportCase = async (req, res) => {
-    try{
-        let data = await userService.getSupport();
-        return res.status(200).json(data)
-        
-    }catch (e){
-        
-        return res.status(200).json({
-            errCode: -1,
-            errMessage: 'Error from server'
-        });
-    }
-}
 
 
 module.exports ={
@@ -129,5 +116,5 @@ module.exports ={
     handleDeleteUser:handleDeleteUser,
     getAllCode: getAllCode,
     getChatbotService: getChatbotService,
-    getAllSupportCase:getAllSupportCase
+
 }

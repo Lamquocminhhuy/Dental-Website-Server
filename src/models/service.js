@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+         
             Service.belongsTo(models.Allcode, { foreignKey: 'serviceId', targetKey: 'keyMap', as: 'ServiceData' })
             Service.belongsTo(models.Allcode, { foreignKey: 'priceId', targetKey: 'keyMap', as: 'PriceData' })
 

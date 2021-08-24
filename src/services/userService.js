@@ -195,7 +195,7 @@ let updateUserData = (data) => {
             })
 
             if (user) {
-                user.firstName = data.firstName,
+                    user.firstName = data.firstName,
                     user.lastName = data.lastName,
                     user.address = data.address,
                     user.roleId = data.roleId,
@@ -261,7 +261,7 @@ let getService = () => {
             let res = {};
             let service = await db.Service.findAll({
                 attributes: {
-                    exclude: ['createdAt', 'updatedAt', 'serviceId', 'priceId']
+                    exclude: ['createdAt', 'updatedAt','priceId']
                 },
                 include: [
                     { model: db.Allcode, as: 'ServiceData', attributes: ['valueVi'] },
@@ -283,27 +283,7 @@ let getService = () => {
 
 }
 
-let getSupport = () => {
-    return new Promise(async(resolve, reject) => {
 
-        try {
-            let res = {};
-            let support = await db.Support.findAll({
-                attributes: {
-                    exclude: ['createdAt', 'updatedAt']
-                }
-            });
-            res.data = support;
-            resolve(res);
-
-        } catch (e) {
-            console.log(e);
-            reject(e)
-        }
-
-    })
-
-}
 module.exports = {
     handleUserLogin: handleUserLogin,
     getAllUsers: getAllUsers,
@@ -312,5 +292,5 @@ module.exports = {
     updateUserData: updateUserData,
     getAllCodeService: getAllCodeService,
     getService: getService,
-    getSupport: getSupport
+    
 }

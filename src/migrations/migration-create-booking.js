@@ -10,27 +10,31 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      key: {
-        type: Sequelize.STRING
-      },
+     
       statusId: {
         type: Sequelize.STRING
       },
       doctorId: {
         type: Sequelize.INTEGER
       },
-      date: {
-        type: Sequelize.DATE
+      patientId: {
+        type: Sequelize.INTEGER
+      },
+      serviceId: {
+        type: Sequelize.STRING
       },
       timeType: {
         type: Sequelize.STRING
       },
+      date: {
+        type: Sequelize.STRING
+      },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });

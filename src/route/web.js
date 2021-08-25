@@ -57,12 +57,16 @@ let initWebRoutes = (app) => {
 
     router.get('/api/get-profile-doctor-by-id', doctorController.getProfileDoctorById);
 
+    router.get('/api/get-all-schedule', doctorController.getAllSchedule);
+
     router.post('/api/patient-book-appointment', patientController.postBookAppointment);
 
     router.post('/api/update-slot-schedule',patientController.updateSlotSchedule);
 
     router.get('/api/booking-list', patientController.getBookingList);
     
+
+    router.post('/api/update-booking-status',patientController.updateBookingStatus);
 
 
 

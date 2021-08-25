@@ -105,7 +105,7 @@ let getBookingList = () =>{
         try {
             let doctor = await db.Booking.findAll({
                 attributes: {
-                    exclude: ['createdAt', 'updatedAt', 'id', 'statusId', 'doctorId', 'patientId']
+                    exclude: ['createdAt', 'updatedAt', 'statusId', 'doctorId', 'patientId']
                 },
                 include: [
 
@@ -132,8 +132,48 @@ let getBookingList = () =>{
     })
 
 }
+
+
+let updateBookingStatus = (data) =>{
+  return new Promise(async(resolve, reject) => {
+      try {
+          if (!data.statusId) {
+              resolve({
+                  errCode: 2,
+                  message: 'Missing required parameter!'
+              })
+          }
+          let slot = await db.Booking.findOne({
+              where: { patientId : data.patientId },
+              raw: false
+          })
+          console.log(slot)
+          if (slot) {
+                  slot.statusId = data.statusId
+                  
+                  await slot.save();
+    
+
+              resolve({
+                  errCode: 0,
+                  message: 'Update the status success!'
+              })
+          } else {
+              resolve({
+                  errCode: 1,
+                  message: 'User not found!'
+              });
+          }
+
+      } catch (e) {
+          reject(e)
+      }
+  })
+
+}
 module.exports = {
   postBookAppointment: postBookAppointment,
   updateSlotSchedule:updateSlotSchedule,
-  getBookingList:getBookingList
+  getBookingList:getBookingList,
+  updateBookingStatus:updateBookingStatus
 };

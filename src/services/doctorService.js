@@ -339,6 +339,40 @@ let getProfileDoctorById = (doctorId) => {
         }
     })
 }
+
+let getAllSchedule = (doctorId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            
+                let dataSchedule = await db.Schedule.findAll({
+                    where: {
+                        doctorId: doctorId,
+                       
+                    },
+                    include: [
+
+                        { model: db.Allcode, as: 'timeTypeData', attributes: ['valueVi'] },
+
+
+                    ],
+                    raw: false,
+                    nest: true
+                })
+                if (!dataSchedule) dataSchedule = [];
+                resolve({
+                    errCode: 0,
+                    data: dataSchedule,
+                })
+                console.log(data)
+            
+
+
+
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
 module.exports = {
 
     getTopDoctorHome: getTopDoctorHome,
@@ -348,5 +382,6 @@ module.exports = {
     bulkCreateSchedule: bulkCreateSchedule,
     getScheduleByDate: getScheduleByDate,
     getExtraInforDoctorById:getExtraInforDoctorById,
-    getProfileDoctorById:getProfileDoctorById
+    getProfileDoctorById:getProfileDoctorById,
+    getAllSchedule:getAllSchedule
 }
